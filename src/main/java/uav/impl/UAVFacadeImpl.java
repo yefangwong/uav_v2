@@ -11,12 +11,12 @@ import util.MyObservable;
  * @Author Wong Ye Fang 709410012
  * @date 2022/05/14
  */
-public class UAVFacade extends MyObservable implements IUAVFacade {
+public class UAVFacadeImpl extends MyObservable implements IUAVFacade {
 	private BootLoader bootLoader;																						// 無人機作業系統載入器
 	private DetectManager objectDetector;																				// AI 物件偵測的功能
 	private IDistanceCalculator distanceCalculator;																		// 目標經緯度計算器，樣式三，觀察者
 
-	public UAVFacade() {
+	public UAVFacadeImpl() {
 		this.on();
 		distanceCalculator = new DistanceCalculator();
 		super.addObserver(distanceCalculator);																			// 註冊為 AI 預測結果的觀察者

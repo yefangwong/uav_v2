@@ -1,7 +1,7 @@
 package proxy;
 
 import uav.IUAVFacade;
-import uav.impl.UAVFacade;
+import uav.impl.UAVFacadeImpl;
 
 /**
  * 無人機的遠端代理人介面
@@ -10,12 +10,12 @@ import uav.impl.UAVFacade;
  * @date 2022/05/14
  */
 public class UAVProxy implements IUAVFacade {
-    UAVFacade realUAV;                                                                                                  // 實際的飛行機物件，但此處只會維護一個參考，不會馬上配置系統資源
+    UAVFacadeImpl realUAV;                                                                                                  // 實際的飛行機物件，但此處只會維護一個參考，不會馬上配置系統資源
 
     @Override
     public void on() {
         if (realUAV == null) {
-            realUAV = new UAVFacade();
+            realUAV = new UAVFacadeImpl();
         } else {
             realUAV.on();                                                                                               // 因為無人機實際要開機啟動了，所以要使用真實的無人機物件進行開機啟動
         }
@@ -24,7 +24,7 @@ public class UAVProxy implements IUAVFacade {
     @Override
     public void fly() {                                                                                                 // fly by proxy
         if (realUAV == null)
-            realUAV = new UAVFacade();
+            realUAV = new UAVFacadeImpl();
         // 模擬遙控器要與遠端無人機建立連線的時間
         try {
             Thread.sleep(1 * 1000);

@@ -1,3 +1,5 @@
+package org.example;
+
 import controller.RemoteControl;
 import controller.impl.RemoteControlImpl;
 import proxy.UAVProxy;
