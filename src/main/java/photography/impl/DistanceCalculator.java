@@ -19,7 +19,6 @@ public class DistanceCalculator implements IDistanceCalculator {
      * 根據無人機經緯度配合航空攝影和大地座標、三角函數推算目標經緯度
      * TODO
      */
-    @Override
     public void calculate() {
         System.out.println("DistanceCalculator: photography calculating....");
         // 模擬影像攝影距離計算
@@ -32,17 +31,14 @@ public class DistanceCalculator implements IDistanceCalculator {
         this.targetLat = 25.026406;
     }
 
-    @Override
     public double getTargetLon() {
         return targetLon;
     }
 
-    @Override
     public double getTargetLat() {
         return targetLat;
     }
 
-    @Override
     public void update() {
         this.calculate();                                                                                               // 計算目標經緯度
     }
